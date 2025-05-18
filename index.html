@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Atharv Pal - Portfolio</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Audiowide&display=swap');
+
+  * {
+    box-sizing: border-box;
+  }
+
+  body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    background: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  header {
+    background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+    padding: 3rem 1rem 5rem 1rem;
+    text-align: center;
+    user-select: none;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.7);
+  }
+
+  /* Show full name immediately without typing effect */
+  header h1 {
+    font-family: 'Audiowide', cursive;
+    font-weight: 600;
+    font-size: 3rem;
+    letter-spacing: 3px;
+    margin-bottom: 0.7rem;
+    color: #00ffe7;
+    min-height: 48px;
+    border-right: none; /* remove blinking cursor */
+    white-space: nowrap;
+  }
+
+  header p {
+    font-size: 1.25rem;
+    max-width: 650px;
+    margin: 0 auto;
+    font-weight: 300;
+    color: #bbb;
+  }
+
+  main {
+    max-width: 900px;
+    margin: -4.8rem auto 2rem auto;
+    background: #1e1e1e;
+    border-radius: 15px;
+    padding: 3rem 2rem;
+    box-shadow: 0 10px 40px rgba(0, 255, 255, 0.15);
+    backdrop-filter: blur(14px);
+  }
+
+  section {
+    margin-bottom: 3rem;
+    opacity: 1 !important; /* Ensure visible */
+    transform: none !important; /* Remove translations */
+    transition: none !important;
+  }
+
+  h2 {
+    border-bottom: 3px solid #00ffe7;
+    padding-bottom: 0.3rem;
+    margin-bottom: 1.7rem;
+    font-weight: 600;
+    font-size: 2.1rem;
+    color: #00d9cc;
+  }
+
+  /* Education Section */
+  .education-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .education-list li {
+    background: #333;
+    margin-bottom: 1.2rem;
+    padding: 1rem 1.2rem;
+    border-radius: 12px;
+    box-shadow: 0 6px 18px rgba(0, 255, 231, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+  .education-list li:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px rgba(0, 255, 231, 0.6);
+  }
+  .education-list li strong {
+    font-weight: 700;
+    font-size: 1.12rem;
+    color: #00ffe7;
+  }
+  .education-list span {
+    display: block;
+    font-weight: 400;
+    font-size: 0.95rem;
+    margin-top: 0.15rem;
+    color: #aadddd;
+  }
+
+  /* Skills Section */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+    gap: 1.4rem;
+  }
+  
+  .skill-item {
+    background: #004d4d;
+    color: #00ffe7;
+    padding: 1rem 0.5rem;
+    border-radius: 14px;
+    box-shadow: 0 7px 20px rgba(0, 255, 231, 0.5);
+    text-align: center;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: default;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .skill-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 14px 28px #00ffe7cc;
+  }
+
+  .skill-icon {
+    font-size: 2.8rem;
+    margin-bottom: 0.4rem;
+  }
+
+  /* Projects Section */
+  .projects-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .project-card {
+    background: #005757;
+    color: #ccf1f1;
+    border-radius: 14px;
+    padding: 1.3rem 1.8rem;
+    margin-bottom: 1.8rem;
+    box-shadow: 0 10px 30px rgba(0, 255, 231, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: default;
+  }
+
+  .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 42px #00ffe7cc;
+  }
+
+  .project-card h3 {
+    margin: 0 0 0.5rem 0;
+    font-weight: 700;
+    color: #00ffe7;
+  }
+
+  .project-card p {
+    margin: 0;
+    font-weight: 500;
+    color: #bbeeee;
+  }
+
+  /* Contact Section */
+  .contact-info {
+    background: #003534;
+    padding: 1.5rem 1rem;
+    border-radius: 14px;
+    box-shadow: 0 8px 30px rgba(0, 255, 231, 0.6);
+    text-align: center;
+    font-size: 1.1rem;
+    color: #00ffe7;
+  }
+
+  .contact-info p {
+    margin: 8px 0;
+    font-weight: 500;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+
+  .contact-info a {
+    color: #00ffe7;
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .contact-info a:hover {
+    border-color: #00ffe7;
+  }
+
+  .contact-icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+    font-size: 0.9rem;
+    padding: 1.5rem 0.5rem;
+    background: #0a2140;
+    color: #666;
+    border-top: 1px solid #123766;
+    user-select: none;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 600px) {
+    header h1 {
+      font-size: 2.2rem;
+      min-height: 42px;
+      border-right: none;
+    }
+    header p {
+      font-size: 1rem;
+    }
+    main {
+      margin: -3.5rem 1rem 2rem 1rem;
+      padding: 2rem 1.2rem;
+    }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1 id="typed-name">Atharv Pal</h1>
+  <p>BTech CSE Second Year Student | Programming, Video Editing, Prompt Engineering &amp; AI Tools Enthusiast</p>
+</header>
+
+<main>
+  <section id="education" tabindex="0">
+    <h2>Education</h2>
+    <ul class="education-list" aria-label="Education List">
+      <li>
+        <strong>10th - Vanasthali Public School</strong>
+        <span>2020 - 2021</span>
+      </li>
+      <li>
+        <strong>12th - PCM Vivekanand Public School</strong>
+        <span>2022 - 2023</span>
+      </li>
+      <li>
+        <strong>BTech - GL Bajaj, AKTU</strong>
+        <span>2023 - 2027</span>
+      </li>
+    </ul>
+  </section>
+
+  <section id="skills" tabindex="0">
+    <h2>Skills</h2>
+    <div class="skills-grid" aria-label="Skills">
+      <div class="skill-item" title="C Programming">
+        <div class="skill-icon" aria-hidden="true">🅲</div>
+        C Programming
+      </div>
+      <div class="skill-item" title="Python Programming">
+        <div class="skill-icon" aria-hidden="true">🐍</div>
+        Python Programming
+      </div>
+      <div class="skill-item" title="Java Programming">
+        <div class="skill-icon" aria-hidden="true">☕</div>
+        Java Programming
+      </div>
+      <div class="skill-item" title="SQL">
+        <div class="skill-icon" aria-hidden="true">🗄️</div>
+        SQL
+      </div>
+      <div class="skill-item" title="HTML">
+        <div class="skill-icon" aria-hidden="true">🌐</div>
+        HTML
+      </div>
+      <div class="skill-item" title="ChatGPT">
+        <div class="skill-icon" aria-hidden="true">🤖</div>
+        ChatGPT
+      </div>
+      <div class="skill-item" title="Gemini">
+        <div class="skill-icon" aria-hidden="true">🔮</div>
+        Gemini
+      </div>
+      <div class="skill-item" title="Perplexity">
+        <div class="skill-icon" aria-hidden="true">❓</div>
+        Perplexity
+      </div>
+      <div class="skill-item" title="Black Box AI">
+        <div class="skill-icon" aria-hidden="true">🎩</div>
+        Black Box AI
+      </div>
+      <div class="skill-item" title="Replica">
+        <div class="skill-icon" aria-hidden="true">👥</div>
+        Replica
+      </div>
+      <div class="skill-item" title="Meta AI">
+        <div class="skill-icon" aria-hidden="true">🧠</div>
+        Meta AI
+      </div>
+      <div class="skill-item" title="Canva">
+        <div class="skill-icon" aria-hidden="true">🎨</div>
+        Canva
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" tabindex="0">
+    <h2>Projects</h2>
+    <ul class="projects-list" aria-label="Projects List">
+      <li class="project-card">
+        <h3>Personal Portfolio Website</h3>
+        <p>Created using HTML, CSS, and JavaScript.</p>
+      </li>
+      <li class="project-card">
+        <h3>Simple Chat Application</h3>
+        <p>Developed using Python programming language.</p>
+      </li>
+    </ul>
+  </section>
+
+  <section id="contact" tabindex="0">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <p>
+        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path d="M2.94 6.94a1.5 1.5 0 012.12 0L10 11.88l4.94-4.94a1.5 1.5 0 112.12 2.12L12.12 14l4.94 4.94a1.5 1.5 0 11-2.12 2.12L10 16.12l-4.94 4.94a1.5 1.5 0 11-2.12-2.12L7.88 14 2.94 9.06a1.5 1.5 0 010-2.12z"/></svg>
+        Email: <a href="mailto:atharvpal1204@gmail.com" aria-label="Email atharvpal1204@gmail.com">atharvpal1204@gmail.com</a>
+      </p>
+      <p>
+        <svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M7.5 22.5h9A7.5 7.5 0 0024 15V9A7.5 7.5 0 0016.5 1.5h-9A7.5 7.5 0 000 9v6a7.5 7.5 0 007.5 7.5zM12 6a6 6 0 016 6 6 6 0 01-6 6 6 6 0 01-6-6 6 6 0 016-6z"/></svg>
+        Instagram: <a href="https://instagram.com/xarl_palatharv" target="_blank" rel="noopener" aria-label="Instagram profile xarl_palatharv">@xarl_palatharv</a>
+      </p>
+    </div>
+  </section>
+</main>
+
+<footer>
+  &copy; 2024 Atharv Pal. All rights reserved.
+</footer>
+
+</body>
+</html>
